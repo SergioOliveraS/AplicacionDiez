@@ -1,0 +1,40 @@
+﻿@model AplicacionDiez.Models.CantidadSucursal
+
+@{
+    ViewData["Title"] = "Agregar producto en sucursal";
+}
+
+<h3>Agregar cantidad de producto en sucursal</h3>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SucursalId" class="control-label"></label>
+                <select asp-for="SucursalId" class ="form-control" asp-items="ViewBag.SucursalId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductoId" class="control-label"></label>
+                <select asp-for="ProductoId" class ="form-control" asp-items="ViewBag.ProductoId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="CantidadProducto" class="control-label"></label>
+                <input asp-for="CantidadProducto" class="form-control" />
+                <span asp-validation-for="CantidadProducto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Crear" class="btn btn-primary" style="margin-top:10px" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div style="margin-top:150px">
+    <a class="btn btn-primary" asp-action="Index">Regresar a la lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
